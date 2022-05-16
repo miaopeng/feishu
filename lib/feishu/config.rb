@@ -8,6 +8,7 @@ module Feishu
                 :verification_token,
                 :uri,
                 :approval_uri,
-                :message_uri
+                :message_uri,
+                :contact_uri
   end
 end
