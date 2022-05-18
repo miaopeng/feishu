@@ -23,11 +23,12 @@ module Feishu
       retry
     end
 
-    def post(path, multipart: false, body: {})
+    def post(path, multipart: false, query:{}, body: {})
       response =
         self.class.post(
           path,
           multipart: multipart,
+          query: query,
           body: multipart ? body : body.to_json,
         )
       handle_response(response.parsed_response)
