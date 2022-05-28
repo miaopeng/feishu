@@ -31,10 +31,11 @@ module Feishu
         res['user_infos'][union_id]['user_id']
       end
 
-      def get_user_info(user_id, user_id_type: 'open_id')
+      def get_user_info(user_id, user_id_type = 'open_id', department_id_type = 'open_department_id')
+        puts "Getting user #{user_id} info #{user_id_type} for #{department_id_type}"
         get(
           "/contact/v3/users/#{user_id}",
-          query: { user_id_type: user_id_type },
+          query: { user_id_type: user_id_type, department_id_type: department_id_type }
         )
       end
     end
