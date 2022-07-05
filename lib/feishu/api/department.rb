@@ -5,8 +5,8 @@ module Feishu
         get("/departments/#{department_id}", query: { department_id_type: department_id_type})
       end
 
-      def get_children(department_id, page_size: 50)
-        get("/departments/#{department_id}/children", query: { page_size: page_size })
+      def get_children(department_id, fetch_child = false, page_size: 50)
+        get("/departments/#{department_id}/children", query: { fetch_child: fetch_child, page_size: page_size })
       end
 
       def get_users(department_id, page_size: 50)
