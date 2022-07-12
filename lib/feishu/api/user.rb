@@ -38,6 +38,15 @@ module Feishu
           query: { user_id_type: user_id_type, department_id_type: department_id_type }
         )
       end
+
+      # 搜索用户信息：https://open.feishu.cn/document/ukTMukTMukTM/uMTM4UjLzEDO14yMxgTN
+      def get_search_user_by_name(user_name, page_size = 20)
+        res = get(
+            "/v1/user",
+            query: {query: user_name, page_size: page_size}
+        )
+        res['users']
+      end
     end
   end
 end
